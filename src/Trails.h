@@ -20,6 +20,8 @@ struct TrailParams{
 	int circleRes;
 	int maxLength;
 	int skipStep;
+	float headLen;
+	float tailLen;
 	AnimCurve headTailcurve;
 };
 

@@ -49,22 +49,22 @@ void Trails::generateMesh(){
 		float percent1 = (i - skip) / (float)(n - 1);
 
 		//cout <<"i: " << i <<" n: " << n << "    percent0: " << percent0 << "     percent1: " << percent1 << endl;
-		float r0 = params->radius * percent0;// * percent0 + percent0 * val3 * 0.3 * radius * sinf(val2 * percent0 + val1 * ofGetElapsedTimef()) + val4 * ofNoise(ofGetElapsedTimef() * val5 * percent0);
-		float r1 = params->radius * percent1;// * percent1 + percent1 * val3 * 0.3 * radius * sinf(val2 * percent1 + val1 * ofGetElapsedTimef()) + val4 * ofNoise(ofGetElapsedTimef() * val5 * percent1);
+		float r0 = params->radius ;// * percent0 + percent0 * val3 * 0.3 * radius * sinf(val2 * percent0 + val1 * ofGetElapsedTimef()) + val4 * ofNoise(ofGetElapsedTimef() * val5 * percent0);
+		float r1 = params->radius ;// * percent1 + percent1 * val3 * 0.3 * radius * sinf(val2 * percent1 + val1 * ofGetElapsedTimef()) + val4 * ofNoise(ofGetElapsedTimef() * val5 * percent1);
 
 		//handle head / tail radius
 		calcRadius(r0, percent0);
 		calcRadius(r1, percent1);
 
 		ofVec3f p0 = positions[i];
-		ofVec3f p1 = positions[i-skip];
-		ofVec3f p2 = positions[i-2*skip];
+		ofVec3f p1 = positions[i - skip];
+		ofVec3f p2 = positions[i - 2 * skip];
 		ofVec3f dir0 = p1 - p0;
 		ofVec3f dir1 = p2 - p1;
-		ofVec3f perpDir0 = dir0.getPerpendicular( ofVec3f(1,1,1) ).normalize();
-		ofVec3f perpDir1 = dir1.getPerpendicular( ofVec3f(1,1,1) ).normalize();
+		ofVec3f perpDir0 = dir0.getPerpendicular( ofVec3f(1.0f,1.0f,1.0f) ).normalize();
+		ofVec3f perpDir1 = dir1.getPerpendicular( ofVec3f(1.0f,1.0f,1.0f) ).normalize();
 
-		float circumf = 360;
+		float circumf = 360.0f;
 		for(int j = 0; j < params->circleRes ; j++ ){
 			float percent00 = j / (float)(params->circleRes);
 			float percent01 = (j+1) / (float)(params->circleRes);
@@ -101,8 +101,9 @@ void Trails::generateMesh(){
 
 void Trails::calcRadius(float & rad, float percent){
 
-	float head = 0.1;
-	float tail = 0.1;
+	//those are wrong, I know!
+	float head = params->tailLen;
+	float tail = params->headLen;
 
 	if (percent < head){
 		float pp = percent / head;

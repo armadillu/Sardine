@@ -18,7 +18,6 @@ void testApp::setup(){
 	tp.headTailcurve = QUADRATIC_EASE_OUT;
 	tp.maxLength = 400;
 
-
 	int lineA = 255;
 	for(int i = 0; i < NUM_FISH_PER_FLOCK; i++){
 		ofxColorGradient g;
@@ -42,8 +41,8 @@ void testApp::setup(){
 
 
 	ofFbo::Settings s;
-	s.width = 2048;
-	s.height = 1024;
+	s.width = ofGetWidth();
+	s.height = ofGetHeight();
 	s.internalformat = GL_RGBA;
 	//	s.textureTarget = GL_TEXTURE_RECTANGLE_ARB;
 	s.maxFilter = GL_LINEAR; GL_NEAREST;
@@ -96,6 +95,8 @@ void testApp::setup(){
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.maxLength, 0, 100);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.skipStep, 1, 20);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.circleRes, 4, 10);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.headLen, 0, 1);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.tailLen, 0, 1);
 
 	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(255,0,255,32) ); // set a bg color for the upcoming params
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.schoolFriends, 0, 1);

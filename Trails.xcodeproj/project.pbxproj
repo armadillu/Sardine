@@ -26,7 +26,10 @@
 		BB59B8D6176534F600CA0739 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB59B8D0176534F600CA0739 /* tinyxmlerror.cpp */; };
 		BB59B8D7176534F600CA0739 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB59B8D1176534F600CA0739 /* tinyxmlparser.cpp */; };
 		BB59B8D8176534F600CA0739 /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB59B8D3176534F600CA0739 /* ofxXmlSettings.cpp */; };
+		BB5F5EA817691D7200F1FA92 /* Flock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB5F5EA517691D7200F1FA92 /* Flock.cpp */; };
+		BB5F5EAC17691F9900F1FA92 /* FlockMember.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB5F5EAA17691F9900F1FA92 /* FlockMember.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
+		BBCB32E91765E8B400FB1CE9 /* ofxTimeMeasurements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB32E51765E8B400FB1CE9 /* ofxTimeMeasurements.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
@@ -128,7 +131,17 @@
 		BB59B8D3176534F600CA0739 /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxXmlSettings.cpp; sourceTree = "<group>"; };
 		BB59B8D4176534F600CA0739 /* ofxXmlSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
 		BB59B8E01765499400CA0739 /* ofxFboBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFboBlur.h; sourceTree = "<group>"; };
+		BB5F5EA317691D6000F1FA92 /* FlockParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlockParams.h; sourceTree = "<group>"; };
+		BB5F5EA417691D7200F1FA92 /* Flock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flock.h; sourceTree = "<group>"; };
+		BB5F5EA517691D7200F1FA92 /* Flock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Flock.cpp; sourceTree = "<group>"; };
+		BB5F5EAA17691F9900F1FA92 /* FlockMember.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlockMember.cpp; sourceTree = "<group>"; };
+		BB5F5EAB17691F9900F1FA92 /* FlockMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlockMember.h; sourceTree = "<group>"; };
+		BB5F5EAE176923E000F1FA92 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
+		BBCB32E21765E8B400FB1CE9 /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
+		BBCB32E31765E8B400FB1CE9 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.md; sourceTree = "<group>"; };
+		BBCB32E51765E8B400FB1CE9 /* ofxTimeMeasurements.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTimeMeasurements.cpp; sourceTree = "<group>"; };
+		BBCB32E61765E8B400FB1CE9 /* ofxTimeMeasurements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTimeMeasurements.h; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -260,6 +273,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				BBCB32DD1765E8B400FB1CE9 /* ofxTimeMeasurements */,
 				BB59B8DE1765499400CA0739 /* ofxFboBlur */,
 				BB59B8CC176534F600CA0739 /* ofxXmlSettings */,
 				e6053ab7fec63d5f83825b880ce53c41 /* ofxOsc */,
@@ -347,6 +361,26 @@
 			name = "3rd party frameworks";
 			sourceTree = "<group>";
 		};
+		BBCB32DD1765E8B400FB1CE9 /* ofxTimeMeasurements */ = {
+			isa = PBXGroup;
+			children = (
+				BBCB32E21765E8B400FB1CE9 /* install.xml */,
+				BBCB32E31765E8B400FB1CE9 /* ReadMe.md */,
+				BBCB32E41765E8B400FB1CE9 /* src */,
+			);
+			name = ofxTimeMeasurements;
+			path = ../../../../_Addons/ofxTimeMeasurements;
+			sourceTree = "<group>";
+		};
+		BBCB32E41765E8B400FB1CE9 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				BBCB32E51765E8B400FB1CE9 /* ofxTimeMeasurements.cpp */,
+				BBCB32E61765E8B400FB1CE9 /* ofxTimeMeasurements.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		E4328144138ABC890047C5CB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,6 +414,12 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				BB5F5EAE176923E000F1FA92 /* constants.h */,
+				BB5F5EA317691D6000F1FA92 /* FlockParams.h */,
+				BB5F5EA417691D7200F1FA92 /* Flock.h */,
+				BB5F5EA517691D7200F1FA92 /* Flock.cpp */,
+				BB5F5EAA17691F9900F1FA92 /* FlockMember.cpp */,
+				BB5F5EAB17691F9900F1FA92 /* FlockMember.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* testApp.h */,
@@ -614,6 +654,9 @@
 				BB59B8D6176534F600CA0739 /* tinyxmlerror.cpp in Sources */,
 				BB59B8D7176534F600CA0739 /* tinyxmlparser.cpp in Sources */,
 				BB59B8D8176534F600CA0739 /* ofxXmlSettings.cpp in Sources */,
+				BBCB32E91765E8B400FB1CE9 /* ofxTimeMeasurements.cpp in Sources */,
+				BB5F5EA817691D7200F1FA92 /* Flock.cpp in Sources */,
+				BB5F5EAC17691F9900F1FA92 /* FlockMember.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,6 +847,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
+				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -890,6 +934,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

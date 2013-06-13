@@ -15,11 +15,21 @@
 #include "ofxAnimatable.h"
 #include "ofxColorGradient.h"
 
+struct TrailParams{
+	float radius;
+	int circleRes;
+	int maxLength;
+	int skipStep;
+	AnimCurve headTailcurve;
+};
+
 class Trails{
 
 public:
 
-	void setup(ofxColorGradient g);
+
+
+	void setup(ofxColorGradient g, TrailParams * p);
 
 	void update(ofVec3f pos);
 	void draw();
@@ -30,14 +40,9 @@ public:
 
 	vector <ofVec3f> positions;
 	ofMesh mesh;
-	float radius;
-	int maxLength;
 	ofxColorGradient gradient;
-	int circleRes;
-	AnimCurve headTailcurve;
+
 	ofMesh normals;
-	int skipStep;
-
-
+	TrailParams * params;
 };
 #endif /* defined(__Trails__Trails__) */

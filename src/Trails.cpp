@@ -37,7 +37,6 @@ void Trails::generateMesh(){
 	int rest = (positions.size() - 1)%skip;
 	int n = positions.size() - rest;
 	
-
 	if ( n < 2 * skip + 1 ) return;
 
 //	cout << "##########################################" << endl;
@@ -95,10 +94,10 @@ void Trails::generateMesh(){
 			mesh.addColor(gradient.getColorAtPercent(percent1));
 			mesh.addNormal(v11);
 			mesh.addVertex( p1 + r1 * v11 );
-			
 		}
 	}
 }
+
 
 void Trails::calcRadius(float & rad, float percent){
 

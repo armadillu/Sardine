@@ -31,7 +31,7 @@ void FlockMember::setupWithRandomParams(){
 	maxSprintTimer = ofRandom( 1.75, 3.25);
 	sprintTimer = ofRandom(maxSprintTimer);
 	thinkTimer = ofRandom(params->rethinkTime);
-	friction = 0.995f;
+
 }
 
 
@@ -47,7 +47,7 @@ void FlockMember::advance(float dt){
 		currentSpeedMagnitude = ( ( 1.0 + turbo ) * params->maxSpeedMagnitude * cruisingSpeed );
 	}
 
-	vel *= friction;
+	vel *= params->mediumFriction;
 	pos = pos + vel * dt;
 }
 
@@ -60,13 +60,13 @@ void FlockMember::update(float dt){
 	counter += dt;
 	thinkTimer += dt;
 	sprintTimer -= dt;
-	turbo *= 0.975;
+	turbo *= 0.9075;
 
 	if ( thinkTimer > params->rethinkTime ){
 		thinkTimer = params->rethinkTime;
 
 		calcAllForces();
-		if (pos.length() > 300){
+		if (pos.length() > params->centerRadius){
 			stayInCenter = -pos;
 		}else{
 			stayInCenter.x = stayInCenter.y = stayInCenter.z = 0.0f;
@@ -84,7 +84,7 @@ void FlockMember::update(float dt){
 		+
 		schoolDifferentColor * params->schoolOthersF
 		+
-		avoidNeigbhors * params->avoidanceF
+		avoidNeigbhors * params->collisionAvoidF
 		+
 		groupCohesion * params->cohesionF
 		+
@@ -183,7 +183,7 @@ void FlockMember::draw(ofMesh & pointsMesh, ofMesh &forcesMesh){
 	}
 	//ofSetColor(c);
 
-	float gain = 150;
+	float gain = 30;
 
 	if (params->debugShowDirection){
 		ofColor cc = ofColor::yellow;
@@ -213,14 +213,14 @@ void FlockMember::draw(ofMesh & pointsMesh, ofMesh &forcesMesh){
 	}
 
 	if (params->debugShowSchooling){
-		ofColor cc = ofColor::green;
+		ofColor cc = ofColor::magenta;
 		forcesMesh.addColor(cc);
 		forcesMesh.addVertex(pos);
 		cc.a = 0;
 		forcesMesh.addColor(cc);
 		forcesMesh.addVertex(pos + schoolSameColor * gain);
 
-		cc = ofColor::magenta;
+		cc = ofColor::cyan;
 		forcesMesh.addColor(cc);
 		forcesMesh.addVertex(pos);
 		cc.a = 0;

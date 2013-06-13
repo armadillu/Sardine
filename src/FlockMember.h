@@ -38,7 +38,6 @@ public:
 	bool enabled;
 
 
-	float friction;
 	ofVec3f pos;
 	ofVec3f vel;
 	ofVec3f acc;

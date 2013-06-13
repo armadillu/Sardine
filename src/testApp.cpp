@@ -66,7 +66,7 @@ void testApp::setup(){
 	//Forces
 	fp.schoolFriends = 0.44f;
 	fp.schoolOthersF = 0.14f;
-	fp.avoidanceF = 0.35f;
+	fp.collisionAvoidF = 0.35f;
 	fp.cohesionF = 0.35f;
 	fp.centerismF = 0.001f;
 
@@ -78,6 +78,7 @@ void testApp::setup(){
 	fp.debugShowSchooling = false;
 	fp.debugShowDirection = false;
 
+	float distRange = 200;
 
 	OFX_REMOTEUI_SERVER_SETUP(10000); 	//start server
 
@@ -90,39 +91,49 @@ void testApp::setup(){
 	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(0,255,0,32) ); // set a bg color for the upcoming params
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(lineW, 0.1, 10);
 
-	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(255,0,0,32) ); // set a bg color for the upcoming params
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(drawTrails);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.radius, 0.01, 20);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.maxLength, 0, 50);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.maxLength, 0, 100);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.skipStep, 1, 20);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.circleRes, 4, 10);
 
-	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(128,0,255,32) ); // set a bg color for the upcoming params
+	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(255,0,255,32) ); // set a bg color for the upcoming params
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.schoolFriends, 0, 1);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.schoolOthersF, 0, 1);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.avoidanceF, 0, 1);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.cohesionF, 0, 1);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.centerismF, 0, 1);
-
-	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(166,0,200,32) ); // set a bg color for the upcoming params
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.schoolFriendsDist, 0, 400);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.schoolOthersDist, 0, 400);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.collisionDist, 0, 400);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.cohesionDist, 0, 400);
-	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(199,0,177,32) ); // set a bg color for the upcoming params
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.maxSpeedMagnitude, 0, 500);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.accelerationF, 0, 100);
-	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(233,0,144,32) ); // set a bg color for the upcoming params
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.rethinkTime, 0, 0.4);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.debugShowCollisions);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.debugShowCohesion);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.schoolFriendsDist, 0, distRange);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.debugShowSchooling);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.debugShowDirection);
-	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(255,0,100,32) ); // set a bg color for the upcoming params
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.debugCohesionDist);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.debugCollisionDist);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.debugSchoolingFriendsDist);
+
+	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(0,255,255,32) ); // set a bg color for the upcoming params
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.schoolOthersF, 0, 1);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.schoolOthersDist, 0, distRange);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.debugSchoolingOthersDist);
+
+	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(255,0,0,32) ); // set a bg color for the upcoming params
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.collisionDist, 0, distRange);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.collisionAvoidF, 0, 1);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.debugShowCollisions);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.debugCollisionDist);
+
+	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(0,0,255,32) ); // set a bg color for the upcoming params
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.cohesionF, 0, 1);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.cohesionDist, 0, distRange);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.debugShowCohesion);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.debugCohesionDist);
+
+	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(255,32) ); // set a bg color for the upcoming params
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.centerismF, 0, 1);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.centerRadius, 50, 300);
+
+	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(250,0,177,32) ); // set a bg color for the upcoming params
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.maxSpeedMagnitude, 0, 100);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.accelerationF, 0, 50);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.mediumFriction, 0.5, 1);
+	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(0,0,177,32) ); // set a bg color for the upcoming params
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.rethinkTime, 0, 0.4);
+
+	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(255,255,0,32) ); // set a bg color for the upcoming params
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.debugShowDirection);
+
 
 	OFX_REMOTEUI_SERVER_LOAD_FROM_XML();
 

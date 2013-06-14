@@ -29,7 +29,7 @@ void testApp::setup(){
 //					   );
 //		}
 		ofColor c = flock->getMember(i)->c;
-		float s = 0.0;
+		float s = 0.5;
 		c.r = c.r * s;
 		c.g = c.g * s;
 		c.b = c.b * s;
@@ -91,13 +91,22 @@ void testApp::setup(){
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(lineW, 0.1, 10);
 
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(drawTrails);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.radius, 0.01, 20);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.maxLength, 0, 100);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.radius, 0.01, 50);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.flatness, 0, 1.0);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.maxLength, 0, 1000);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.skipStep, 1, 20);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.circleRes, 4, 10);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.headLen, 0, 1);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.tailLen, 0, 1);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.circleRes, 4, 20);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.headLen, 0, .5);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.tailLen, 0, .5);
 
+	//MACRO acces wont work for enum types, we need to cast, so we do it manually
+	ofxRemoteUIServer::instance()->shareParam( "tp.headTailcurve", (int*)&tp.headTailcurve, 0, NUM_ANIM_CURVES-1);
+	ofxRemoteUIServer::instance()->shareParam( "tp.primitiveMode", (int*)&tp.primitiveMode, OF_PRIMITIVE_TRIANGLES, OF_PRIMITIVE_POINTS);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.drawNormals);
+
+
+	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(255,255,255,32) ); // set a bg color for the upcoming params
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.ignoreClans);
 	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(255,0,255,32) ); // set a bg color for the upcoming params
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.schoolFriends, 0, 1);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.schoolFriendsDist, 0, distRange);
@@ -110,8 +119,8 @@ void testApp::setup(){
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.debugSchoolingOthersDist);
 
 	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(255,0,0,32) ); // set a bg color for the upcoming params
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.collisionDist, 0, distRange);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.collisionAvoidF, 0, 1);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.collisionDist, 0, distRange);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.debugShowCollisions);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.debugCollisionDist);
 
@@ -126,8 +135,8 @@ void testApp::setup(){
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.centerRadius, 50, 300);
 
 	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(250,0,177,32) ); // set a bg color for the upcoming params
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.maxSpeedMagnitude, 0, 100);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.accelerationF, 0, 50);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.maxSpeedMagnitude, 0, 300);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.accelerationF, 0, 150);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.mediumFriction, 0.5, 1);
 	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(0,0,177,32) ); // set a bg color for the upcoming params
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.rethinkTime, 0, 0.4);
@@ -159,10 +168,17 @@ void testApp::update(){
 	TIME_SAMPLE_START("update");
 
 		TIME_SAMPLE_START("updateFlock");
-		flock->update( 0.016666666f);
-		for(int i = 0 ; i < NUM_FISH_PER_FLOCK; i++){
-			t[i].update( flock->getMember(i)->pos);
+		if (run){
+			flock->update( 0.016666666f);
+			for(int i = 0 ; i < NUM_FISH_PER_FLOCK; i++){
+				t[i].update( flock->getMember(i)->pos);
+			}			
 		}
+	
+		for(int i = 0 ; i < NUM_FISH_PER_FLOCK; i++){
+			t[i].generateMesh();
+		}
+
 		TIME_SAMPLE_STOP("updateFlock");
 
 	TIME_SAMPLE_STOP("update");
@@ -171,7 +187,7 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
 
-	ofSetLineWidth(1);
+	ofSetLineWidth(lineW);
 	glPointSize(lineW);
 	//glPolygonMode(GL_FRONT, GL_FILL);
 	//glEnable(GL_CULL_FACE);
@@ -278,5 +294,6 @@ void testApp::dragEvent(ofDragInfo dragInfo){
 }
 
 void testApp::exit(){
+	OFX_REMOTEUI_SERVER_CLOSE();
 	OFX_REMOTEUI_SERVER_SAVE_TO_XML();
 }

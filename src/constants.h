@@ -9,4 +9,4 @@
 
 #pragma once
 
-#define NUM_FISH_PER_FLOCK	10
+#define NUM_FISH_PER_FLOCK	300

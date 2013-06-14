@@ -129,25 +129,23 @@ void FlockMember::calcAllForces(){
 				}
 			}
 
-			if ( clan == mate->clan ){
+			if ( clan == mate->clan || params->ignoreClans){
 				if ( dist < params->schoolFriendsDist * params->schoolFriendsDist ){
 					schoolSameColor = schoolSameColor + ( mate->pos - pos );
 				}
+
+				if ( dist < params->cohesionDist * params->cohesionDist ){
+					groupCohesion = groupCohesion + mate->vel;
+				}
 			}
 
-			if ( clan != mate->clan ){
+			if ( clan != mate->clan || params->ignoreClans){
 				if ( dist < params->schoolOthersDist * params->schoolOthersDist ){
 					schoolDifferentColor = schoolDifferentColor - mate->pos + pos ;
 					if (sprintTimer <= 0.0){
 						turbo = maxTurbo * ofRandom(3, 5);
 						sprintTimer = maxSprintTimer;
 					}
-				}
-			}
-
-			if ( dist < params->cohesionDist * params->cohesionDist ){
-				if ( clan == mate->clan ){
-					groupCohesion = groupCohesion + mate->vel;
 				}
 			}
 		}

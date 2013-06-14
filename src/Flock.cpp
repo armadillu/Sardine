@@ -37,9 +37,9 @@ Flock::Flock( FlockParams* params_ ){
 		else cc.g = 255;
 		if (rgb[2] == '0') cc.b = 64;
 		else cc.b = 255;
-
+		float v = 500;
 		members[i] = new FlockMember(	ofVec3f( ofRandom(-rr, rr), ofRandom(-rr, rr), ofRandom(-rr, rr) ),
-									ofVec3f(1,1,1), 
+									ofVec3f(ofRandom(-v,v), ofRandom(-v,v), ofRandom(-v,v) ),
 									ofVec3f( ofRandom(-0.5, 0.5), ofRandom(-0.5, 0.5), ofRandom(-0.5, 0.5) ),
 									i, 
 									cc,
@@ -80,7 +80,7 @@ void Flock::draw(){
 		members[i]->draw(pointsMesh, forcesMesh );
 	}
 
-	pointsMesh.draw();
+	//pointsMesh.draw();
 	ofSetLineWidth(1.5);
 	forcesMesh.draw();
 }

@@ -23,6 +23,10 @@ struct TrailParams{
 	float headLen;
 	float tailLen;
 	AnimCurve headTailcurve;
+	ofPrimitiveMode primitiveMode;
+	bool drawNormals;
+	float flatness;
+	
 };
 
 class Trails{
@@ -45,6 +49,7 @@ public:
 	ofxColorGradient gradient;
 
 	ofMesh normals;
+	ofMesh points;
 	TrailParams * params;
 };
 #endif /* defined(__Trails__Trails__) */

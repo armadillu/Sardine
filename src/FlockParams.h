@@ -31,5 +31,7 @@ typedef struct {
 	bool debugCollisionDist;
 	bool debugSchoolingFriendsDist;
 	bool debugSchoolingOthersDist;
+
+	bool ignoreClans;
 	
 }FlockParams;

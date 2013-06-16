@@ -93,17 +93,26 @@ void testApp::setup(){
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(drawTrails);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.radius, 0.01, 50);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.flatness, 0, 1.0);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.maxLength, 0, 1000);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.maxLength, 0, 250);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.skipStep, 1, 20);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.circleRes, 4, 20);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.headLen, 0, .5);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.tailLen, 0, .5);
 
 	//MACRO acces wont work for enum types, we need to cast, so we do it manually
-	ofxRemoteUIServer::instance()->shareParam( "tp.headTailcurve", (int*)&tp.headTailcurve, 0, NUM_ANIM_CURVES-1);
-	ofxRemoteUIServer::instance()->shareParam( "tp.primitiveMode", (int*)&tp.primitiveMode, OF_PRIMITIVE_TRIANGLES, OF_PRIMITIVE_POINTS);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.drawNormals);
+	vector<string> curveNames;
+	for(int i = 0; i<NUM_ANIM_CURVES; i++){
+		curveNames.push_back(ofxAnimatable::getCurveName((AnimCurve)i));
+	}
+	ofxRemoteUIServer::instance()->shareParam( "tp.headTailcurve", (int*)&tp.headTailcurve, 0, NUM_ANIM_CURVES-1, curveNames);
 
+	vector<string> modesNames;
+	modesNames.push_back("OF_PRIMITIVE_TRIANGLES"); modesNames.push_back("OF_PRIMITIVE_TRIANGLE_STRIP");
+	modesNames.push_back("OF_PRIMITIVE_TRIANGLE_FAN"); modesNames.push_back("OF_PRIMITIVE_LINES");
+	modesNames.push_back("OF_PRIMITIVE_LINE_STRIP"); modesNames.push_back("OF_PRIMITIVE_LINE_LOOP");
+	modesNames.push_back("OF_PRIMITIVE_LINE_POINTS");
+	ofxRemoteUIServer::instance()->shareParam( "tp.primitiveMode", (int*)&tp.primitiveMode, OF_PRIMITIVE_TRIANGLES, OF_PRIMITIVE_POINTS, modesNames);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.drawNormals);
 
 	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(255,255,255,32) ); // set a bg color for the upcoming params
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(fp.ignoreClans);
@@ -156,7 +165,8 @@ void testApp::setup(){
 	light.setPointLight();
 	light.enable();
 	TIME_SAMPLE_SET_FRAMERATE(60);
-	ofEnableSmoothing();
+	//ofEnableSmoothing();
+	//cam.setDrag(0.98);
 
 }
 
@@ -165,23 +175,25 @@ void testApp::update(){
 
 	OFX_REMOTEUI_SERVER_UPDATE(0.01666);
 	//t.update()
-	TIME_SAMPLE_START("update");
 
-		TIME_SAMPLE_START("updateFlock");
-		if (run){
-			flock->update( 0.016666666f);
-			for(int i = 0 ; i < NUM_FISH_PER_FLOCK; i++){
-				t[i].update( flock->getMember(i)->pos);
-			}			
-		}
-	
+
+	TIME_SAMPLE_START("updateFlock");
+	if (run){
+		flock->update( 0.016666666f);
 		for(int i = 0 ; i < NUM_FISH_PER_FLOCK; i++){
-			t[i].generateMesh();
-		}
+			t[i].update( flock->getMember(i)->pos);
+		}			
+	}
+	TIME_SAMPLE_STOP("updateFlock");
 
-		TIME_SAMPLE_STOP("updateFlock");
+	TIME_SAMPLE_START("generateMesh");
+	for(int i = 0 ; i < NUM_FISH_PER_FLOCK; i++){
+		t[i].generateMesh();
+	}
+	TIME_SAMPLE_STOP("generateMesh");
 
-	TIME_SAMPLE_STOP("update");
+
+
 }
 
 //--------------------------------------------------------------
@@ -250,7 +262,15 @@ void testApp::draw(){
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
 
-	run = !run;
+	if (key=='r'){
+		flock->resetPositions();
+		for(int i = 0; i < NUM_FISH_PER_FLOCK; i++){
+			t[i].clear();
+		}
+		
+	}else{
+		run = !run;
+	}
 }
 
 //--------------------------------------------------------------

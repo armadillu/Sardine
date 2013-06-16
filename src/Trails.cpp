@@ -28,6 +28,9 @@ void Trails::update(ofVec3f pos){
 	}	
 }
 
+void Trails::clear(){
+	positions.clear();
+}
 
 void Trails::generateMesh(){
 

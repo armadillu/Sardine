@@ -26,6 +26,8 @@ class Flock {
 	
 		void update(float dt);
 		void draw();
+
+		void resetPositions();
 	
 		void calcDistances();
 

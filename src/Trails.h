@@ -39,6 +39,7 @@ public:
 
 	void update(ofVec3f pos);
 	void draw();
+	void clear();
 
 	void generateMesh();
 

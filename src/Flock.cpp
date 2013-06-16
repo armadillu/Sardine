@@ -61,6 +61,13 @@ Flock::Flock( FlockParams* params_ ){
 
 Flock::~Flock(){}
 
+void Flock::resetPositions(){
+	float r = 5;
+	for (int i=0; i< NUM_FISH_PER_FLOCK; i++){
+		members[i]->pos = ofVec3f( ofRandom(-r,r), ofRandom(-r,r), ofRandom(-r,r));
+	}
+
+}
 
 void Flock::update(float dt_){
 

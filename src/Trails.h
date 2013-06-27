@@ -26,14 +26,15 @@ struct TrailParams{
 	ofPrimitiveMode primitiveMode;
 	bool drawNormals;
 	float flatness;
+	float ondulationFreq;
+	float ondulationAmp;
+	int ondulationPeriod;
 	
 };
 
 class Trails{
 
 public:
-
-
 
 	void setup(ofxColorGradient g, TrailParams * p);
 
@@ -48,9 +49,13 @@ public:
 	vector <ofVec3f> positions;
 	ofMesh mesh;
 	ofxColorGradient gradient;
+	bool addColorDataToMesh;
 
+	ofMaterial mat;
 	ofMesh normals;
 	ofMesh points;
 	TrailParams * params;
+
+	float timeOffset;
 };
 #endif /* defined(__Trails__Trails__) */

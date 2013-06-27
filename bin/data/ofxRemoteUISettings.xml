@@ -1,18 +1,18 @@
 <OFX_REMOTE_UI_PARAMS>
     <REMOTEUI_PARAM_BOOL paramName="animateLight">0</REMOTEUI_PARAM_BOOL>
     <REMOTEUI_PARAM_BOOL paramName="doShader">1</REMOTEUI_PARAM_BOOL>
-    <REMOTEUI_PARAM_BOOL paramName="drawTeapot">0</REMOTEUI_PARAM_BOOL>
+    <REMOTEUI_PARAM_BOOL paramName="drawTeapot">1</REMOTEUI_PARAM_BOOL>
     <REMOTEUI_PARAM_BOOL paramName="drawTrails">1</REMOTEUI_PARAM_BOOL>
     <REMOTEUI_PARAM_FLOAT paramName="eyeSpecularClamp">1.000000000</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_FLOAT paramName="eyeSpecularGain">1.528817177</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_FLOAT paramName="eyeSpecularPow">0.135690793</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_FLOAT paramName="fp.accelerationF">12.689732552</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_FLOAT paramName="fp.centerRadius">282.303680420</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_FLOAT paramName="fp.centerismF">0.164627880</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_FLOAT paramName="fp.cohesionDist">128.906250000</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_FLOAT paramName="fp.cohesionF">0.493266851</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_FLOAT paramName="fp.collisionAvoidF">0.183148295</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_FLOAT paramName="fp.collisionDist">51.645099640</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_FLOAT paramName="fp.accelerationF">13.274651527</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_FLOAT paramName="fp.centerRadius">195.072311401</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_FLOAT paramName="fp.centerismF">0.221996412</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_FLOAT paramName="fp.cohesionDist">80.917442322</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_FLOAT paramName="fp.cohesionF">0.852407098</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_FLOAT paramName="fp.collisionAvoidF">0.621568859</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_FLOAT paramName="fp.collisionDist">57.601352692</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_BOOL paramName="fp.debugCohesionDist">0</REMOTEUI_PARAM_BOOL>
     <REMOTEUI_PARAM_BOOL paramName="fp.debugCollisionDist">0</REMOTEUI_PARAM_BOOL>
     <REMOTEUI_PARAM_BOOL paramName="fp.debugSchoolingFriendsDist">0</REMOTEUI_PARAM_BOOL>
@@ -22,38 +22,38 @@
     <REMOTEUI_PARAM_BOOL paramName="fp.debugShowDirection">0</REMOTEUI_PARAM_BOOL>
     <REMOTEUI_PARAM_BOOL paramName="fp.debugShowSchooling">0</REMOTEUI_PARAM_BOOL>
     <REMOTEUI_PARAM_BOOL paramName="fp.ignoreClans">0</REMOTEUI_PARAM_BOOL>
-    <REMOTEUI_PARAM_FLOAT paramName="fp.maxSpeedMagnitude">72.842796326</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_FLOAT paramName="fp.maxSpeedMagnitude">176.454284668</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_FLOAT paramName="fp.mediumFriction">0.971890509</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_FLOAT paramName="fp.rethinkTime">0.107484080</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_FLOAT paramName="fp.rethinkTime">0.400000006</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_FLOAT paramName="fp.schoolFriends">0.261975735</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_FLOAT paramName="fp.schoolFriendsDist">200.000000000</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_FLOAT paramName="fp.schoolOthersDist">175.706604004</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_FLOAT paramName="fp.schoolOthersDist">96.046241760</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_FLOAT paramName="fp.schoolOthersF">0.243506715</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_FLOAT paramName="gpuBlur.blurOffset">3.230383635</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_INT paramName="gpuBlur.blurOverlayGain">207</REMOTEUI_PARAM_INT>
-    <REMOTEUI_PARAM_INT paramName="gpuBlur.blurPasses">2</REMOTEUI_PARAM_INT>
+    <REMOTEUI_PARAM_FLOAT paramName="gpuBlur.blurOffset">2.812357903</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_INT paramName="gpuBlur.blurOverlayGain">255</REMOTEUI_PARAM_INT>
+    <REMOTEUI_PARAM_INT paramName="gpuBlur.blurPasses">3</REMOTEUI_PARAM_INT>
     <REMOTEUI_PARAM_INT paramName="gpuBlur.numBlurOverlays">3</REMOTEUI_PARAM_INT>
     <REMOTEUI_PARAM_COLOR paramName="lightAmbient">
-        <R>26</R>
-        <G>26</G>
-        <B>28</B>
+        <R>30</R>
+        <G>31</G>
+        <B>34</B>
         <A>255</A>
     </REMOTEUI_PARAM_COLOR>
     <REMOTEUI_PARAM_COLOR paramName="lightDiffuse">
-        <R>77</R>
-        <G>76</G>
-        <B>80</B>
+        <R>116</R>
+        <G>115</G>
+        <B>129</B>
         <A>255</A>
     </REMOTEUI_PARAM_COLOR>
-    <REMOTEUI_PARAM_FLOAT paramName="lightDist">100.000000000</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_FLOAT paramName="lightDist">1.000000000</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_COLOR paramName="lightSpecular">
-        <R>115</R>
-        <G>114</G>
-        <B>115</B>
+        <R>244</R>
+        <G>245</G>
+        <B>255</B>
         <A>255</A>
     </REMOTEUI_PARAM_COLOR>
-    <REMOTEUI_PARAM_FLOAT paramName="lightSpeed">1.332880378</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_FLOAT paramName="lineW">4.046519279</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_FLOAT paramName="lightSpeed">4.982854366</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_FLOAT paramName="lineW">6.357397556</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_COLOR paramName="matAmbient">
         <R>0</R>
         <G>84</G>
@@ -76,14 +76,17 @@
     <REMOTEUI_PARAM_FLOAT paramName="specularClamp">0.741861999</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_FLOAT paramName="specularGain">0.543654084</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_FLOAT paramName="specularPow">0.270490676</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_INT paramName="tp.circleRes">6</REMOTEUI_PARAM_INT>
+    <REMOTEUI_PARAM_INT paramName="tp.circleRes">4</REMOTEUI_PARAM_INT>
     <REMOTEUI_PARAM_BOOL paramName="tp.drawNormals">0</REMOTEUI_PARAM_BOOL>
     <REMOTEUI_PARAM_FLOAT paramName="tp.flatness">0.000000000</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_FLOAT paramName="tp.headLen">0.087880224</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_ENUM paramName="tp.headTailcurve">1</REMOTEUI_PARAM_ENUM>
-    <REMOTEUI_PARAM_INT paramName="tp.maxLength">81</REMOTEUI_PARAM_INT>
+    <REMOTEUI_PARAM_FLOAT paramName="tp.headLen">0.228919446</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_ENUM paramName="tp.headTailcurve">8</REMOTEUI_PARAM_ENUM>
+    <REMOTEUI_PARAM_INT paramName="tp.maxLength">83</REMOTEUI_PARAM_INT>
+    <REMOTEUI_PARAM_FLOAT paramName="tp.ondulationAmp">90.000000000</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_FLOAT paramName="tp.ondulationFreq">16.133869171</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_INT paramName="tp.ondulationPeriod">10</REMOTEUI_PARAM_INT>
     <REMOTEUI_PARAM_ENUM paramName="tp.primitiveMode">0</REMOTEUI_PARAM_ENUM>
-    <REMOTEUI_PARAM_FLOAT paramName="tp.radius">4.059324265</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_INT paramName="tp.skipStep">11</REMOTEUI_PARAM_INT>
+    <REMOTEUI_PARAM_FLOAT paramName="tp.radius">4.116019726</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_INT paramName="tp.skipStep">1</REMOTEUI_PARAM_INT>
     <REMOTEUI_PARAM_FLOAT paramName="tp.tailLen">0.899999976</REMOTEUI_PARAM_FLOAT>
 </OFX_REMOTE_UI_PARAMS>

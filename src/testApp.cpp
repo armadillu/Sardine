@@ -99,10 +99,6 @@ void testApp::setup(){
 	OFX_REMOTEUI_SERVER_SHARE_COLOR_PARAM(matAmbient);
 	OFX_REMOTEUI_SERVER_SHARE_COLOR_PARAM(matDiffuse);
 	OFX_REMOTEUI_SERVER_SHARE_COLOR_PARAM(matSpecular);
-	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(255,255,255,64) ); // set a bg color for the upcoming params
-	OFX_REMOTEUI_SERVER_SHARE_COLOR_PARAM(lightAmbient);
-	OFX_REMOTEUI_SERVER_SHARE_COLOR_PARAM(lightDiffuse);
-	OFX_REMOTEUI_SERVER_SHARE_COLOR_PARAM(lightSpecular);
 
 	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(0,255,0,64) ); // set a bg color for the upcoming params
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(specularGain,0,2);
@@ -114,11 +110,17 @@ void testApp::setup(){
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(eyeSpecularClamp,0,1);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(eyeSpecularPow,0,1);
 
+	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_GROUP("LIGHTS");
+	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(255,255,255,64) ); // set a bg color for the upcoming params
+	OFX_REMOTEUI_SERVER_SHARE_COLOR_PARAM(lightAmbient);
+	OFX_REMOTEUI_SERVER_SHARE_COLOR_PARAM(lightDiffuse);
+	OFX_REMOTEUI_SERVER_SHARE_COLOR_PARAM(lightSpecular);
 	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(255,128,0,64) ); // set a bg color for the upcoming params
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(animateLight);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(lightSpeed,0,10);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(lightDist,1,600);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(drawTeapot);
+
 
 
 	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_GROUP("BLUR");
@@ -138,9 +140,14 @@ void testApp::setup(){
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.maxLength, 0, 250);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.skipStep, 1, 20);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.circleRes, 4, 20);
+	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(128,0,255,32) ); // set a bg color for the upcoming params
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.headLen, 0, .9);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.tailLen, 0, .9);
-
+	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(255,128,0,32) ); // set a bg color for the upcoming params
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.ondulationAmp, 0, 90);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.ondulationFreq, 0, 40);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.ondulationPeriod, 3, 20);
+	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(0,0,255,32) ); // set a bg color for the upcoming params
 	//MACRO acces wont work for enum types, we need to cast, so we do it manually
 	vector<string> curveNames;
 	for(int i = 0; i<NUM_ANIM_CURVES; i++){
@@ -155,6 +162,7 @@ void testApp::setup(){
 	modesNames.push_back("OF_PRIMITIVE_LINE_POINTS");
 	ofxRemoteUIServer::instance()->shareParam( "tp.primitiveMode", (int*)&tp.primitiveMode, OF_PRIMITIVE_TRIANGLES, OF_PRIMITIVE_POINTS, modesNames);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.drawNormals);
+
 
 	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_GROUP("FLOCK");
 	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_COLOR( ofColor(255,255,255,32) ); // set a bg color for the upcoming params

@@ -15,13 +15,29 @@ void Trails::setup(ofxColorGradient g, TrailParams * p){
 	params = p;
 	params->primitiveMode = OF_PRIMITIVE_TRIANGLES;
 	points.setMode(OF_PRIMITIVE_POINTS);
+
+	mat.setAmbientColor( g.getColorAtPercent(0) );
+	mat.setDiffuseColor(g.getColorAtPercent(0) );
+	mat.setSpecularColor( ofColor(255));
+	mat.setShininess(25.0f);
+	timeOffset = ofRandom(100);
+
 }
 
 
 void Trails::update(ofVec3f pos){
 
 	//positions.push_back(pos);
-	positions.insert(positions.begin(), pos);
+	int ind = params->ondulationPeriod;
+	if (positions.size() > ind){
+		ofVec3f dir = pos - positions[ind];
+		dir /= ind;
+		dir.rotate( params->ondulationAmp * sin( params->ondulationFreq * ofGetElapsedTimef() + timeOffset), dir.crossed(ofVec3f(1,0,0)) );
+
+		positions.insert(positions.begin(), positions[0] + dir );
+	}else{
+		positions.insert(positions.begin(), pos);
+	}
 	
 	while(positions.size() > params->maxLength){
 		positions.erase(positions.end()-1);
@@ -98,34 +114,34 @@ void Trails::generateMesh(){
 				normals.addVertex(p0);
 				normals.addVertex(p0 + v00.getRotated(normalAng, dir0.getPerpendicular(perpDir0)) * (r0 + 5.0f) );
 			}
-			mesh.addColor(gradient.getColorAtPercent(percent0));
+			if(addColorDataToMesh)mesh.addColor(gradient.getColorAtPercent(percent0));
 			//mesh.addColor(ofColor::blue);
 			mesh.addNormal( v00 );
 			mesh.addVertex( p0 + flatR00 * v00  );
 
-			mesh.addColor(gradient.getColorAtPercent(percent0));
+			if(addColorDataToMesh)mesh.addColor(gradient.getColorAtPercent(percent0));
 			//mesh.addColor(ofColor::green);
 			mesh.addNormal(v01);
 			mesh.addVertex( p0 + flatR01 * v01 );
 
-			mesh.addColor(gradient.getColorAtPercent(percent1));
+			if(addColorDataToMesh)mesh.addColor(gradient.getColorAtPercent(percent1));
 			//mesh.addColor(ofColor::red);
 			mesh.addNormal( v11 );
 			mesh.addVertex( p1 + flatR11 * v11 );
 
 
 
-			mesh.addColor(gradient.getColorAtPercent(percent0));
+			if(addColorDataToMesh)mesh.addColor(gradient.getColorAtPercent(percent0));
 			//mesh.addColor(ofColor::cyan);
 			mesh.addNormal(v00);
 			mesh.addVertex( p0 + flatR00 * v00 );
 
-			mesh.addColor(gradient.getColorAtPercent(percent1));
+			if(addColorDataToMesh)mesh.addColor(gradient.getColorAtPercent(percent1));
 			//mesh.addColor(ofColor::orange);
 			mesh.addNormal(v10);
 			mesh.addVertex( p1 + flatR10 * v10 );
 			
-			mesh.addColor(gradient.getColorAtPercent(percent1));
+			if(addColorDataToMesh)mesh.addColor(gradient.getColorAtPercent(percent1));
 			//mesh.addColor(ofColor::magenta);
 			mesh.addNormal(v11);
 			mesh.addVertex( p1 + flatR11 * v11 );
@@ -155,7 +171,9 @@ void Trails::draw(){
 
 	//ofNoFill();
 	//points.draw();
+	mat.begin();
 	mesh.draw();
+	mat.end();
 
 	if(params->drawNormals){
 		ofEnableBlendMode(OF_BLENDMODE_ALPHA);

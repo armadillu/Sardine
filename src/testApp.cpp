@@ -327,6 +327,8 @@ void testApp::draw(){
 
 	//draw clean scene
 	ofSetColor(255);
+	ofBackgroundGradient(ofColor::fromHsb(160, 255, 60), ofColor::fromHsb(0, 0, 0));
+
 	ofEnableBlendMode(OF_BLENDMODE_ALPHA);
 	gpuBlur.drawSceneFBO();
 	ofEnableBlendMode(OF_BLENDMODE_ADD);

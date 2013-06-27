@@ -56,8 +56,12 @@ Flock::Flock( FlockParams* params_ ){
 	
 	forcesMesh.setMode(OF_PRIMITIVE_LINES);
 	pointsMesh.setMode(OF_PRIMITIVE_POINTS);
+
 }
 
+void Flock::setup(){
+
+}
 
 Flock::~Flock(){}
 
@@ -83,6 +87,8 @@ void Flock::draw(){
 
 	pointsMesh.clear();
 	forcesMesh.clear();
+
+
 	for (int i=0; i< NUM_FISH_PER_FLOCK; i++){
 		members[i]->draw(pointsMesh, forcesMesh );
 	}

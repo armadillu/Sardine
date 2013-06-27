@@ -32,6 +32,9 @@
 		BB70A2A0176A409600313E07 /* ofxRemoteUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB70A21C176A409600313E07 /* ofxRemoteUI.cpp */; };
 		BB70A2A1176A409600313E07 /* ofxRemoteUIClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB70A21E176A409600313E07 /* ofxRemoteUIClient.cpp */; };
 		BB70A2A2176A409600313E07 /* ofxRemoteUIServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB70A220176A409600313E07 /* ofxRemoteUIServer.cpp */; };
+		BBA10F4A177BA9CA0061C96B /* ofxAutoReloadedShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBA10F3F177BA9CA0061C96B /* ofxAutoReloadedShader.cpp */; };
+		BBA10F51177BAFB30061C96B /* phong.frag in Sources */ = {isa = PBXBuildFile; fileRef = BBA10F4F177BAFB30061C96B /* phong.frag */; };
+		BBA10F52177BAFB30061C96B /* phong.vert in Sources */ = {isa = PBXBuildFile; fileRef = BBA10F50177BAFB30061C96B /* phong.vert */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		BBCB32E91765E8B400FB1CE9 /* ofxTimeMeasurements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBCB32E51765E8B400FB1CE9 /* ofxTimeMeasurements.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
@@ -145,6 +148,12 @@
 		BB70A220176A409600313E07 /* ofxRemoteUIServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxRemoteUIServer.cpp; sourceTree = "<group>"; };
 		BB70A221176A409600313E07 /* ofxRemoteUIServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxRemoteUIServer.h; sourceTree = "<group>"; };
 		BB70A222176A409600313E07 /* uriencode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uriencode.h; sourceTree = "<group>"; };
+		BBA10F3C177BA9CA0061C96B /* license.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.md; sourceTree = "<group>"; };
+		BBA10F3D177BA9CA0061C96B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		BBA10F3F177BA9CA0061C96B /* ofxAutoReloadedShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAutoReloadedShader.cpp; sourceTree = "<group>"; };
+		BBA10F40177BA9CA0061C96B /* ofxAutoReloadedShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAutoReloadedShader.h; sourceTree = "<group>"; };
+		BBA10F4F177BAFB30061C96B /* phong.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = phong.frag; sourceTree = "<group>"; };
+		BBA10F50177BAFB30061C96B /* phong.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = phong.vert; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		BBCB32E21765E8B400FB1CE9 /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
 		BBCB32E31765E8B400FB1CE9 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.md; sourceTree = "<group>"; };
@@ -262,6 +271,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				BBA10F16177BA9CA0061C96B /* ofxAutoReloadedShader */,
 				BB70A0B7176A401100313E07 /* ofxAnimatable */,
 				BBCB32DD1765E8B400FB1CE9 /* ofxTimeMeasurements */,
 				BB59B8DE1765499400CA0739 /* ofxFboBlur */,
@@ -387,6 +397,36 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		BBA10F16177BA9CA0061C96B /* ofxAutoReloadedShader */ = {
+			isa = PBXGroup;
+			children = (
+				BBA10F3C177BA9CA0061C96B /* license.md */,
+				BBA10F3D177BA9CA0061C96B /* README.md */,
+				BBA10F3E177BA9CA0061C96B /* src */,
+			);
+			name = ofxAutoReloadedShader;
+			path = ../../../../_AddonsByOthers/ofxAutoReloadedShader;
+			sourceTree = "<group>";
+		};
+		BBA10F3E177BA9CA0061C96B /* src */ = {
+			isa = PBXGroup;
+			children = (
+				BBA10F3F177BA9CA0061C96B /* ofxAutoReloadedShader.cpp */,
+				BBA10F40177BA9CA0061C96B /* ofxAutoReloadedShader.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		BBA10F4E177BAFB30061C96B /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				BBA10F4F177BAFB30061C96B /* phong.frag */,
+				BBA10F50177BAFB30061C96B /* phong.vert */,
+			);
+			name = shaders;
+			path = bin/data/shaders;
+			sourceTree = SOURCE_ROOT;
+		};
 		BBAB23C913894ECA00AA2426 /* system frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,6 +512,7 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				BBA10F4E177BAFB30061C96B /* shaders */,
 				BB5F5EAE176923E000F1FA92 /* constants.h */,
 				BB5F5EA317691D6000F1FA92 /* FlockParams.h */,
 				BB5F5EA417691D7200F1FA92 /* Flock.h */,
@@ -671,6 +712,9 @@
 				BB70A2A0176A409600313E07 /* ofxRemoteUI.cpp in Sources */,
 				BB70A2A1176A409600313E07 /* ofxRemoteUIClient.cpp in Sources */,
 				BB70A2A2176A409600313E07 /* ofxRemoteUIServer.cpp in Sources */,
+				BBA10F4A177BA9CA0061C96B /* ofxAutoReloadedShader.cpp in Sources */,
+				BBA10F51177BAFB30061C96B /* phong.frag in Sources */,
+				BBA10F52177BAFB30061C96B /* phong.vert in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,16 +14,19 @@
 #include "FlockMember.h"
 #include "constants.h"
 #include "ofxTimeMeasurements.h"
+#include "ofxAutoReloadedShader.h"
+#include "ofxRemoteUIServer.h"
 
 class FlockMember;
 
 class Flock {
-	
+
 	public:
 
 		Flock( FlockParams* params );
 		~Flock(void);
-	
+
+		void setup();
 		void update(float dt);
 		void draw();
 
@@ -36,7 +39,8 @@ class Flock {
 		FlockParams*		getParams(){return params;}
 
 	private:
-	
+
+
 		FlockParams *params;
 		FlockMember* members[NUM_FISH_PER_FLOCK];
 

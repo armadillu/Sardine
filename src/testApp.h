@@ -37,12 +37,36 @@ class testApp : public ofBaseApp{
 	bool run;
 	float lineW;
 
+	bool drawTeapot;
 	Flock * flock;
 	FlockParams fp;
-
 
 	bool drawTrails;
 
 	ofxFboBlur gpuBlur;
+
+	ofVec3f	lightPos;
 	ofLight light;
+	bool animateLight;
+	float lightSpeed;
+	float lightDist;
+
+
+	ofColor matAmbient;
+	ofColor matDiffuse;
+	ofColor matSpecular;
+
+	ofColor lightAmbient;
+	ofColor lightDiffuse;
+	ofColor lightSpecular;
+
+	float specularGain, specularClamp, specularPow;
+	float eyeSpecularGain, eyeSpecularClamp, eyeSpecularPow;
+
+	ofMaterial	mMatMainMaterial;
+
+	enum showSH{SHOW_ALL, SHOW_N, SHOW_L, SHOW_E, SHOW_R, SHOW_SPECULAR, SHOW_EYE_SPECULAR, NUM_SHOWS};
+	bool doShader;
+	ofxAutoReloadedShader*   shader;
+	showSH showInShader;
 };

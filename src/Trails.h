@@ -32,6 +32,12 @@ struct TrailParams{
 	
 };
 
+struct TrailRing{
+	vector<ofVec3f> points;
+	vector<ofVec3f> normals;
+	ofColor color;
+};
+
 class Trails{
 
 public:
@@ -45,8 +51,12 @@ public:
 	void generateMesh();
 
 	void calcRadius(float & rad, float percent);
+	vector <vector<ofVec3f> > ringForPos(int pos);
+
 
 	vector <ofVec3f> positions;
+	vector <TrailRing> rings; //match positions 1:1
+	
 	ofMesh mesh;
 	ofxColorGradient gradient;
 	bool addColorDataToMesh;

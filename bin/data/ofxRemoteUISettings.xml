@@ -32,7 +32,7 @@
     <REMOTEUI_PARAM_FLOAT paramName="gpuBlur.blurOffset">2.812357903</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_INT paramName="gpuBlur.blurOverlayGain">255</REMOTEUI_PARAM_INT>
     <REMOTEUI_PARAM_INT paramName="gpuBlur.blurPasses">3</REMOTEUI_PARAM_INT>
-    <REMOTEUI_PARAM_INT paramName="gpuBlur.numBlurOverlays">3</REMOTEUI_PARAM_INT>
+    <REMOTEUI_PARAM_INT paramName="gpuBlur.numBlurOverlays">2</REMOTEUI_PARAM_INT>
     <REMOTEUI_PARAM_COLOR paramName="lightAmbient">
         <R>30</R>
         <G>31</G>
@@ -45,7 +45,7 @@
         <B>129</B>
         <A>255</A>
     </REMOTEUI_PARAM_COLOR>
-    <REMOTEUI_PARAM_FLOAT paramName="lightDist">1.000000000</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_FLOAT paramName="lightDist">425.182891846</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_COLOR paramName="lightSpecular">
         <R>244</R>
         <G>245</G>
@@ -53,7 +53,7 @@
         <A>255</A>
     </REMOTEUI_PARAM_COLOR>
     <REMOTEUI_PARAM_FLOAT paramName="lightSpeed">4.982854366</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_FLOAT paramName="lineW">6.357397556</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_FLOAT paramName="lineW">4.330971718</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_COLOR paramName="matAmbient">
         <R>0</R>
         <G>84</G>
@@ -72,21 +72,21 @@
         <B>250</B>
         <A>255</A>
     </REMOTEUI_PARAM_COLOR>
-    <REMOTEUI_PARAM_ENUM paramName="showInShader">5</REMOTEUI_PARAM_ENUM>
+    <REMOTEUI_PARAM_ENUM paramName="showInShader">6</REMOTEUI_PARAM_ENUM>
     <REMOTEUI_PARAM_FLOAT paramName="specularClamp">0.658893645</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_FLOAT paramName="specularGain">0.543654084</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_FLOAT paramName="specularPow">0.270490676</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_INT paramName="tp.circleRes">4</REMOTEUI_PARAM_INT>
     <REMOTEUI_PARAM_BOOL paramName="tp.drawNormals">0</REMOTEUI_PARAM_BOOL>
-    <REMOTEUI_PARAM_FLOAT paramName="tp.flatness">0.196106985</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_FLOAT paramName="tp.headLen">0.228919446</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_FLOAT paramName="tp.flatness">0.000000000</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_FLOAT paramName="tp.headLen">0.092365555</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_ENUM paramName="tp.headTailcurve">8</REMOTEUI_PARAM_ENUM>
     <REMOTEUI_PARAM_INT paramName="tp.maxLength">83</REMOTEUI_PARAM_INT>
-    <REMOTEUI_PARAM_FLOAT paramName="tp.ondulationAmp">90.000000000</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_FLOAT paramName="tp.ondulationFreq">16.133869171</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_INT paramName="tp.ondulationPeriod">10</REMOTEUI_PARAM_INT>
+    <REMOTEUI_PARAM_FLOAT paramName="tp.ondulationAmp">21.657691956</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_FLOAT paramName="tp.ondulationFreq">14.650285721</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_INT paramName="tp.ondulationPeriod">18</REMOTEUI_PARAM_INT>
     <REMOTEUI_PARAM_ENUM paramName="tp.primitiveMode">0</REMOTEUI_PARAM_ENUM>
-    <REMOTEUI_PARAM_FLOAT paramName="tp.radius">8.572243690</REMOTEUI_PARAM_FLOAT>
-    <REMOTEUI_PARAM_INT paramName="tp.skipStep">1</REMOTEUI_PARAM_INT>
+    <REMOTEUI_PARAM_FLOAT paramName="tp.radius">3.130986929</REMOTEUI_PARAM_FLOAT>
+    <REMOTEUI_PARAM_INT paramName="tp.skipStep">4</REMOTEUI_PARAM_INT>
     <REMOTEUI_PARAM_FLOAT paramName="tp.tailLen">0.899999976</REMOTEUI_PARAM_FLOAT>
 </OFX_REMOTE_UI_PARAMS>

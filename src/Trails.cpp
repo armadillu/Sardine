@@ -21,7 +21,6 @@ void Trails::setup(ofxColorGradient g, TrailParams * p){
 	mat.setSpecularColor( ofColor(255));
 	mat.setShininess(25.0f);
 	timeOffset = ofRandom(100);
-
 }
 
 
@@ -44,9 +43,11 @@ void Trails::update(ofVec3f pos){
 	}	
 }
 
+
 void Trails::clear(){
 	positions.clear();
 }
+
 
 void Trails::generateMesh(){
 
@@ -59,7 +60,6 @@ void Trails::generateMesh(){
 	mesh.setMode(params->primitiveMode);
 	int skip = params->skipStep;
 	int n = floor(positions.size() / skip);
-
 
 //	cout << "##########################################" << endl;
 //	cout << "real n: " << positions.size() << "    rest: " << rest << endl;
@@ -93,7 +93,7 @@ void Trails::generateMesh(){
 		points.addVertex(p0);
 
 		//printf("#################\n");
-		float circumf = 360.0f;
+		float circumf = 180;
 		for(int j = 0; j < params->circleRes ; j++ ){
 			float percent00 = j / (float)(params->circleRes - 1);
 			float percent01 = (j+1) / (float)(params->circleRes - 1);
@@ -130,7 +130,7 @@ void Trails::generateMesh(){
 			mesh.addVertex( p1 + flatR11 * v11 );
 
 
-
+			
 			if(addColorDataToMesh)mesh.addColor(gradient.getColorAtPercent(percent0));
 			//mesh.addColor(ofColor::cyan);
 			mesh.addNormal(v00);

@@ -95,7 +95,9 @@ void Flock::draw(){
 
 	//pointsMesh.draw();
 	ofSetLineWidth(1.5);
+	ofDisableLighting();
 	forcesMesh.draw();
+	ofEnableLighting();
 }
 
 

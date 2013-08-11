@@ -134,6 +134,7 @@ void testApp::setup(){
 	OFX_REMOTEUI_SERVER_SET_NEW_COLOR();
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(lineW, 0.1, 10);
 
+	OFX_REMOTEUI_SERVER_SET_NEW_COLOR();
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(drawTrails);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.radius, 0.01, 50);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.flatness, 0, 1.0);
@@ -141,28 +142,27 @@ void testApp::setup(){
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.skipStep, 1, 20);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.circleRes, 4, 20);
 	OFX_REMOTEUI_SERVER_SET_NEW_COLOR();
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.headLen, 0, .9);
-	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.tailLen, 0, .9);
-	OFX_REMOTEUI_SERVER_SET_NEW_COLOR();
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.ondulationAmp, 0, 90);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.ondulationFreq, 0, 40);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.ondulationPeriod, 3, 20);
 	OFX_REMOTEUI_SERVER_SET_NEW_COLOR();
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.headLen, 0, .9);
+	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.tailLen, 0, .9);
 	//MACRO acces wont work for enum types, we need to cast, so we do it manually
 	vector<string> curveNames;
 	for(int i = 0; i<NUM_ANIM_CURVES; i++){
 		curveNames.push_back(ofxAnimatable::getCurveName((AnimCurve)i));
 	}
-	ofxRemoteUIServer::instance()->shareParam( "tp.headTailcurve", (int*)&tp.headTailcurve, 0, NUM_ANIM_CURVES-1, curveNames);
+	OFX_REMOTEUI_SERVER_SHARE_ENUM_PARAM(tp.headTailcurve, 0, NUM_ANIM_CURVES-1, curveNames);
 
+	OFX_REMOTEUI_SERVER_SET_NEW_COLOR();
 	vector<string> modesNames;
 	modesNames.push_back("OF_PRIMITIVE_TRIANGLES"); modesNames.push_back("OF_PRIMITIVE_TRIANGLE_STRIP");
 	modesNames.push_back("OF_PRIMITIVE_TRIANGLE_FAN"); modesNames.push_back("OF_PRIMITIVE_LINES");
 	modesNames.push_back("OF_PRIMITIVE_LINE_STRIP"); modesNames.push_back("OF_PRIMITIVE_LINE_LOOP");
 	modesNames.push_back("OF_PRIMITIVE_LINE_POINTS");
-	ofxRemoteUIServer::instance()->shareParam( "tp.primitiveMode", (int*)&tp.primitiveMode, OF_PRIMITIVE_TRIANGLES, OF_PRIMITIVE_POINTS, modesNames);
+	OFX_REMOTEUI_SERVER_SHARE_ENUM_PARAM(tp.primitiveMode, OF_PRIMITIVE_TRIANGLES, OF_PRIMITIVE_POINTS, modesNames);
 	OFX_REMOTEUI_SERVER_SHARE_PARAM(tp.drawNormals);
-
 
 	OFX_REMOTEUI_SERVER_SET_UPCOMING_PARAM_GROUP("FLOCK");
 	OFX_REMOTEUI_SERVER_SET_NEW_COLOR();

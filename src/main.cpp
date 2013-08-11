@@ -6,9 +6,9 @@
 int main( ){
 
     ofAppGlutWindow window;
-	window.setGlutDisplayString("rgba double samples>=8 depth");
+	//window.setGlutDisplayString("rgba double samples>=8 depth");
 
-	ofSetupOpenGL(&window, 2048, 1152, OF_FULLSCREEN);
+	ofSetupOpenGL(&window, 1920, 1080, OF_FULLSCREEN);
 	//ofSetupOpenGL(&window, 2048, 1152, OF_WINDOW);
 
 

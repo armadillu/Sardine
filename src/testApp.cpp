@@ -52,7 +52,7 @@ void testApp::setup(){
 	s.useDepth = true;
 	s.useStencil = false;
 
-	gpuBlur.setup(s);
+	gpuBlur.setup(s, true);
 
 	//initial params
 	fp.rethinkTime = 0.03f;
@@ -345,7 +345,6 @@ void testApp::draw(){
 	gpuBlur.drawBlurFbo();
 
 	ofSetColor(255);
-	TIME_SAMPLE_DRAW_TOP_LEFT();
 
 }
 

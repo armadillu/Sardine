@@ -1,6 +1,6 @@
 <OFX_REMOTE_UI_PARAMS>
     <REMOTEUI_PARAM_BOOL paramName="animateLight">0</REMOTEUI_PARAM_BOOL>
-    <REMOTEUI_PARAM_BOOL paramName="doShader">0</REMOTEUI_PARAM_BOOL>
+    <REMOTEUI_PARAM_BOOL paramName="doShader">1</REMOTEUI_PARAM_BOOL>
     <REMOTEUI_PARAM_BOOL paramName="drawTeapot">1</REMOTEUI_PARAM_BOOL>
     <REMOTEUI_PARAM_BOOL paramName="drawTrails">1</REMOTEUI_PARAM_BOOL>
     <REMOTEUI_PARAM_FLOAT paramName="eyeSpecularClamp">1.000000000</REMOTEUI_PARAM_FLOAT>
@@ -55,9 +55,9 @@
     <REMOTEUI_PARAM_FLOAT paramName="lightSpeed">4.982854366</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_FLOAT paramName="lineW">4.330971718</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_COLOR paramName="matAmbient">
-        <R>0</R>
-        <G>84</G>
-        <B>188</B>
+        <R>173</R>
+        <G>55</G>
+        <B>0</B>
         <A>255</A>
     </REMOTEUI_PARAM_COLOR>
     <REMOTEUI_PARAM_COLOR paramName="matDiffuse">
@@ -72,7 +72,7 @@
         <B>250</B>
         <A>255</A>
     </REMOTEUI_PARAM_COLOR>
-    <REMOTEUI_PARAM_ENUM paramName="showInShader">6</REMOTEUI_PARAM_ENUM>
+    <REMOTEUI_PARAM_ENUM paramName="showInShader">4</REMOTEUI_PARAM_ENUM>
     <REMOTEUI_PARAM_FLOAT paramName="specularClamp">0.658893645</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_FLOAT paramName="specularGain">0.543654084</REMOTEUI_PARAM_FLOAT>
     <REMOTEUI_PARAM_FLOAT paramName="specularPow">0.270490676</REMOTEUI_PARAM_FLOAT>
